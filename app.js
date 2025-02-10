@@ -281,6 +281,10 @@ app.post("/posts/:id/comments", authenticateToken, async (req, res) => {
   }
 });
 
+const fs = require("fs");
+if (!fs.existsSync("./uploads/")) {
+  fs.mkdirSync("./uploads/");
+}
 const PORT = config.server.port;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
