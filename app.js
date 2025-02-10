@@ -6,6 +6,7 @@ const jwt = require("jsonwebtoken");
 const path = require("path");
 const cors = require("cors");
 const config = require("./config");
+const fs = require("fs");
 
 const app = express();
 app.use(cors());
@@ -281,7 +282,6 @@ app.post("/posts/:id/comments", authenticateToken, async (req, res) => {
   }
 });
 
-const fs = require("fs");
 if (!fs.existsSync("./uploads/")) {
   fs.mkdirSync("./uploads/");
 }
